@@ -1,5 +1,7 @@
 {
   "name": "hibrida",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular-standalone"
 }
