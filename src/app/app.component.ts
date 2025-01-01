@@ -16,12 +16,7 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // If you want to show splash screen only on first visit,
-    // you can check localStorage here
-    const hasVisited = localStorage.getItem('hasVisited');
-    if (hasVisited) {
-      this.showSplash = false;
-    }
+    this.showSplash = true;
   }
 
   navigateToTabs() {
