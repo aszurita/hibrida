@@ -1,13 +1,223 @@
-img {
-  width: 100vw;
-  height: 30vh;
-  object-fit: cover;
+
+.app-container{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; 
 }
 
-ion-button {
-  margin: 0 auto;
+
+
+.header {
+  background: #fff;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #FBEBE3;
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    
+    .logo {
+      width: 40px;
+      height: 40px;
+      background: #232E4A;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .brand-name {
+      color: #232E4A;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
 }
 
-.home{
-  background-color: white;
+.info-card {
+  margin: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  h2 {
+    color: #232E4A;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  p {
+    color: #667BAB;
+    line-height: 1.6;
+  }
+}
+.info-card {
+  margin: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  .card-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .text-content {
+    flex: 1;
+    
+    h2 {
+      color: #232E4A;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    p {
+      color: #667BAB;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+  }
+
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .info-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  }
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1rem;
+  box-shadow: 0 4px 12px rgba(35, 46, 74, 0.08);
+  position: relative;
+  overflow: hidden;
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .title {
+      color: #232E4A;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .indicator {
+      background: #DDB9CA;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      color: #232E4A;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+
+  .content {
+    color: #667BAB;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    
+    p {
+      margin: 0;
+    }
+  }
+
+  .stat-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    
+    .stat-box {
+      background: #FBEBE3;
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      .stat-title {
+        color: #232E4A;
+        font-weight: 600;
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-value {
+        color: #232E4A;
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 150px;
+    height: 150px;
+    background: "#4C8CCO";
+    opacity: 0.05;
+    border-radius: 50%;
+  }
+}
+
+
+.stat-card-ecuador{
+  background: #232E4A;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1rem;
+  box-shadow: 0 4px 12px rgba(35, 46, 74, 0.08);
+  position: relative;
+  overflow: hidden;
+  color: white;
+
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .stat-value{
+    font-size: 1.2rem;
+  }
+
+}
+
+.card-NeumoSmart{
+
+  ion-button{
+    --background : #667BAB;
+    --background-hover : #232E4A;
+    --background-activated :  #232E4A;
+  }
+
+  
 }
