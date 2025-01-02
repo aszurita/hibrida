@@ -1,62 +1,84 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Retroalimentación
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <div class="header">
+    <div class="logo-container">
+      <img src="../../assets/logos/NeumoSmart.png" alt="NeumoSmartLogo"
+        class="logo">
+      <div class="brand-name">NeumoSmart</div>
+    </div>
+  </div>
 
-<ion-content [fullscreen]="true">
+  <div class="main-container">
+    <div class="header-section">
+      <h1>Detección de Neumonía mediante Radiografías</h1>
+      <p class="subtitle">Sube tu radiografía y descubre el diagnóstico basado
+        en inteligencia artificial</p>
+    </div>
 
-  <ion-card class="ion-padding-bottom ion-margin-bottom">
+    <ion-card>
+      <ion-card-content>
+        <div class="upload-zone" [class.active]="isDragging()"
+          (dragover)="onDragOver($event)"
+          (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
 
-    <ion-card-header>
-      <ion-card-title>Su opinión es importante</ion-card-title>
-    </ion-card-header>
+          <div class="upload-content" *ngIf="!selectedFile">
+            <ion-icon name="cloud-upload-outline"
+              class="upload-icon"></ion-icon>
+            <ion-button class="upload-button" (click)="fileInput.click()">
+              <input #fileInput type="file" accept=".jpg,.jpeg,.png"
+                (change)="onFileSelected($event)" hidden>
+              Subir Radiografía
+            </ion-button>
+            <p class="drag-text">O arrastra y suelta tu archivo aquí</p>
+            <p class="format-text">Por favor, sube una imagen clara de tu
+              radiografía de tórax en formato JPG o PNG</p>
+          </div>
 
-    <ion-card-content class="ion-text-center">
+          <div class="preview-content" *ngIf="selectedFile">
+            <img #image [src]="previewUrl" alt="Preview" class="preview-image">
+            <ion-button fill="clear" (click)="removeFile()">
+              <ion-icon slot="start" name="trash-outline"></ion-icon>
+              Eliminar imagen
+            </ion-button>
+          </div>
+        </div>
 
-      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <ion-button expand="block" class="process-button"
+          [disabled]="!selectedFile || processing()"
+          (click)="processImage()">
+          {{ processing() ? 'Procesando...' : 'Obtener Diagnóstico' }}
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
 
-        <ion-select formControlName="score" label="Calificación"
-          placeholder="Seleccione un valor">
-          <ion-select-option value="bueno">Bueno</ion-select-option>
-          <ion-select-option value="regular">Regular</ion-select-option>
-          <ion-select-option value="malo">Malo</ion-select-option>
-        </ion-select>
+    <ion-card *ngIf="diagnosis" class="backgorunResult">
+      <ion-card-content>
+        <div class="diagnosis-header">
+          <h2>{{ diagnosis }}</h2>
+        </div>
+        <div *ngIf="diagnosis === 'NORMAL'" class="diagnosis-details">
+          <p>
+            No se detectan signos de neumonía. ¡Tus resultados son normales!
+            Recuerda mantener hábitos saludables para cuidar tus pulmones:
+          </p>
+          <ul>
+            <li>Evita fumar</li>
+            <li>Realiza actividad física regularmente</li>
+            <li>Mantén una buena hidratación</li>
+            <li>Consulta a un médico ante cualquier síntoma sospechoso</li>
+          </ul>
+        </div>
+        <div class="diagnosis-details"
+          *ngIf="diagnosis !== 'NORMAL' && getDiagnosisInfo()">
+          <div class="info-section" *ngFor="let section of getInfoSections()">
+            <h3>{{ getTitle(section) }}</h3>
+            <ul>
+              <li *ngFor="let item of getDiagnosisInfo()?.[section]">{{ item
+                }}</li>
+            </ul>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
 
-        <ion-textarea formControlName="opinion" label="Opinión"
-          placeholder="Agregue aquí su descripción"></ion-textarea>
-
-        <ion-button type="submit" [disabled]="!myForm.valid"
-          type="submit">Enviar</ion-button>
-
-      </form>
-
-    </ion-card-content>
-  </ion-card>
-  <ion-card class="ion-padding-bottom ion-margin-bottom">
-
-    <ion-card-header>
-      <ion-card-title>Opiniones</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-
-      <ion-list>
-
-        <!-- CARGA DE DATOS - INICIO -->
-        @for (datum of dataList; track $index) {
-        <ion-item>
-          <ion-label> {{ datum?.score }} </ion-label>
-          <ion-label> {{ datum?.opinion }} </ion-label>
-        </ion-item>
-        }
-        <!-- CARGA DE DATOS - FIN -->
-
-      </ion-list>
-
-    </ion-card-content>
-  </ion-card>
-
+  </div>
 </ion-content>

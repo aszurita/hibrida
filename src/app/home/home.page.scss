@@ -212,7 +212,11 @@
 }
 
 .card-NeumoSmart{
-
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+  
   ion-button{
     --background : #667BAB;
     --background-hover : #232E4A;
