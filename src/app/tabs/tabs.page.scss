@@ -1,1 +1,45 @@
-
+ion-tabs {
+  ion-tab-bar {
+    --background: #ffffff;
+    padding: 10px;
+    
+    ion-tab-button {
+      position: relative;
+      
+      .tab-button-content {
+        position: relative;
+        z-index: 2;
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+        z-index: 1;
+      }
+      
+      &.tab-selected {
+        &::before {
+          background: #232E4A; // El color específico que quieres
+        }
+        
+        ion-icon {
+          color: white; // También cambiamos el color del icono al mismo
+        }
+      }
+      
+      ion-icon {
+        font-size: 24px;
+        color: #666;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+}

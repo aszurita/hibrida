@@ -8,12 +8,12 @@ import { TeachablemachineService } from '../services/teachablemachine.service';
 import { PercentPipe } from '@angular/common';
 @Component({
   selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss'],
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonFab, IonFabButton, IonIcon, IonCard, IonCardContent, IonButton, IonList, IonItem, IonLabel, PercentPipe],
 })
-export class Tab1Page {
+export class Home {
   imageReady = signal(false)
   imageUrl = signal("")
   /* Declare la referencia al elemento con el id image */
