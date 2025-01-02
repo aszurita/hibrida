@@ -7,7 +7,7 @@ import { cloudUploadOutline } from 'ionicons/icons';
 import { TeachablemachineService } from '../services/teachablemachine.service';
 import { PercentPipe } from '@angular/common';
 @Component({
-  selector: 'app-tab1',
+  selector: 'home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,

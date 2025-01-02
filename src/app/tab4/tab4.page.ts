@@ -3,7 +3,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent,IonCard, IonCardHeader, Ion
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 
 @Component({
-  selector: 'app-tab3',
+  selector: 'app-tab4',
   templateUrl: 'tab4.page.html',
   styleUrls: ['tab4.page.scss'],
   standalone: true,

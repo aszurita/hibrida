@@ -10,15 +10,15 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ProviderService } from '../services/provider.service';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
+  selector: 'model',
+  templateUrl: 'model.page.html',
+  styleUrls: ['model.page.scss'],
   standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
     IonSelect, IonSelectOption, IonTextarea, IonButton,
     IonList, IonItem, IonLabel,ReactiveFormsModule]
 })
-export class Tab2Page {
+export class ModelPage {
   /* Arreglo con datos locales */
   dataList: any[] = [];
 

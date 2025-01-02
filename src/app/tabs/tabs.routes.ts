@@ -7,14 +7,14 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'Home',
+        path: 'home',
         loadComponent: () =>
           import('../home/Home.page').then((m) => m.Home),
       },
       {
-        path: 'tab2',
+        path: 'model',
         loadComponent: () =>
-          import('../tab2/tab2.page').then((m) => m.Tab2Page),
+          import('../Model/model.page').then((m) => m.ModelPage),
       },
       {
         path: 'tab3',
@@ -28,14 +28,14 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/Home',
+        redirectTo: '/tabs/home',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/Home',
+    redirectTo: '/tabs/home',
     pathMatch: 'full',
   },
 ];

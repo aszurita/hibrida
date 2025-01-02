@@ -1,34 +1,62 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Acerca de
+      Retroalimentación
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true">
 
-  <ion-card>
+  <ion-card class="ion-padding-bottom ion-margin-bottom">
+
     <ion-card-header>
+      <ion-card-title>Su opinión es importante</ion-card-title>
+    </ion-card-header>
 
-      <ion-card-title class="titulo">Descripción</ion-card-title>
+    <ion-card-content class="ion-text-center">
 
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+        <ion-select formControlName="score" label="Calificación"
+          placeholder="Seleccione un valor">
+          <ion-select-option value="bueno">Bueno</ion-select-option>
+          <ion-select-option value="regular">Regular</ion-select-option>
+          <ion-select-option value="malo">Malo</ion-select-option>
+        </ion-select>
+
+        <ion-textarea formControlName="opinion" label="Opinión"
+          placeholder="Agregue aquí su descripción"></ion-textarea>
+
+        <ion-button type="submit" [disabled]="!myForm.valid"
+          type="submit">Enviar</ion-button>
+
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="ion-padding-bottom ion-margin-bottom">
+
+    <ion-card-header>
+      <ion-card-title>Opiniones</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <p id="descripcion">
-        Una aplicación móvil desarrollada en Angular Ionic es un software
-        multiplataforma que utiliza el framework Angular para construir la
-        lógica y la estructura de la aplicación, junto con el framework Ionic
-        para crear una interfaz de usuario atractiva y funcional. Ionic
-        proporciona componentes y herramientas para diseñar aplicaciones que se
-        sienten y se ven nativas en dispositivos iOS y Android. La aplicación se
-        puede desplegar tanto en la web como en tiendas de aplicaciones móviles.
-        Utiliza tecnologías web como HTML, CSS y JavaScript, lo que facilita la
-        reutilización de código y la implementación rápida.
-      </p>
-    </ion-card-content>
 
+      <ion-list>
+
+        <!-- CARGA DE DATOS - INICIO -->
+        @for (datum of dataList; track $index) {
+        <ion-item>
+          <ion-label> {{ datum?.score }} </ion-label>
+          <ion-label> {{ datum?.opinion }} </ion-label>
+        </ion-item>
+        }
+        <!-- CARGA DE DATOS - FIN -->
+
+      </ion-list>
+
+    </ion-card-content>
   </ion-card>
 
 </ion-content>
