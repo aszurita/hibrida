@@ -6,29 +6,77 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true" class="ion-padding content">
+  <div class="page-content">
+    <div class="section">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="titulo">Detección de Neumonía en Rayos X</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>
+            La detección temprana de neumonía (viral, bacteriana o su ausencia) es crucial, especialmente en Ecuador, donde la temporada de lluvias incrementa las enfermedades respiratorias. La alta carga de trabajo en los centros médicos puede retrasar diagnósticos y tratamientos.
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
 
-  <ion-card>
-    <ion-card-header>
+    <div class="section">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="titulo">Beneficios</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>Diagnóstico rápido y preciso.</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Reducción de la carga de radiólogos.</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Acceso mejorado en áreas con recursos limitados.</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Respuesta eficiente ante el aumento de casos en época de lluvias.</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </div>
 
-      <ion-card-title class="titulo">Descripción</ion-card-title>
+    <div class="section">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="titulo">Solución</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>
+            Una app que permite cargar imágenes de rayos X y obtener un análisis automatizado para detectar neumonía con alta precisión.
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
 
-    </ion-card-header>
-
-    <ion-card-content>
-      <p id="descripcion">
-        Una aplicación móvil desarrollada en Angular Ionic es un software
-        multiplataforma que utiliza el framework Angular para construir la
-        lógica y la estructura de la aplicación, junto con el framework Ionic
-        para crear una interfaz de usuario atractiva y funcional. Ionic
-        proporciona componentes y herramientas para diseñar aplicaciones que se
-        sienten y se ven nativas en dispositivos iOS y Android. La aplicación se
-        puede desplegar tanto en la web como en tiendas de aplicaciones móviles.
-        Utiliza tecnologías web como HTML, CSS y JavaScript, lo que facilita la
-        reutilización de código y la implementación rápida.
-      </p>
-    </ion-card-content>
-
-  </ion-card>
-
+    <div class="section">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="titulo">Características</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>Carga de imágenes: Desde dispositivos médicos o importadas.</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Análisis en tiempo real: Diagnóstico inmediato con estimación de confianza.</ion-label>
+            </ion-item>
+          </ion-list>
+          <p>
+            Facilitamos una detección rápida y confiable para mejorar la salud pública en Ecuador.
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>
