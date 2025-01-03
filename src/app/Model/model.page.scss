@@ -1,3 +1,11 @@
+
+.ion-padding{
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; 
+  background-color: white;
+}
+
 .main-container {
   max-width: 800px;
   margin: 0 auto;
@@ -153,7 +161,6 @@
   }
 }
 
-// Add these styles to your model.page.scss
 ion-card {
   margin: 16px;
   border-radius: 12px;
