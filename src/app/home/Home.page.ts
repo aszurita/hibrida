@@ -1,6 +1,7 @@
 import { Component, signal, ViewChild, ElementRef } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonFab, IonFabButton, IonIcon, IonCard, IonCardContent, IonButton, IonList, IonItem, IonLabel, } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { RouterModule } from '@angular/router';
 /* Importe la función y el ícono */
 import { addIcons } from 'ionicons';
 import { cloudUploadOutline } from 'ionicons/icons';
@@ -11,7 +12,7 @@ import { PercentPipe } from '@angular/common';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonFab, IonFabButton, IonIcon, IonCard, IonCardContent, IonButton, IonList, IonItem, IonLabel, PercentPipe],
+  imports: [RouterModule, IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonFab, IonFabButton, IonIcon, IonCard, IonCardContent, IonButton, IonList, IonItem, IonLabel, PercentPipe],
 })
 export class Home {
   imageReady = signal(false)
