@@ -15,44 +15,86 @@ ion-content {
   padding: 16px;
 }
 
-.section {
-  margin-bottom: 16px;
+.header {
+  display: flex;
+  align-items: center;
 }
 
-.titulo {
+.logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      
+      .logo {
+        width: 40px;
+        height: 40px;
+        background: #232E4A;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+      
+      .brand-name {
+        color: #232E4A;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+
+.section {
+  margin-bottom: 16px;
+  background-color: #232e4a;
+  ;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.harmonized-card {
+  background-color: var(--neutral-color) !important; /* Usar color neutral */
+  color: var(--primary-color) !important;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
+  padding: 16px;
+}
+
+.harmonized-card-header {
+  margin-bottom: 10px;
+}
+
+.harmonized-card-title {
   font-size: 1.4em;
   font-weight: bold;
   color: var(--secondary-color) !important;
 }
 
-ion-card {
-  --background: var(--accent-color) !important;
-  --color: var(--primary-color) !important;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  margin-bottom: 15px;
-}
-
-ion-card-header,
-ion-card-title,
-ion-card-content,
-ion-item,
-ion-label {
-  --background: var(--accent-color) !important;
-  --color: var(--primary-color) !important;
-}
-
-ion-card-content p {
+.harmonized-card-content p {
   font-size: 1em;
   line-height: 1.5;
 }
 
-ion-item {
-  --background: var(--accent-color) !important;
-  --color: var(--primary-color) !important;
-  border-bottom: 1px solid var(--neutral-color);
+.harmonized-list {
+  list-style-type: none;
+  padding: 0;
 }
 
-ion-label {
+.harmonized-list-item {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+  border-bottom: 1px solid var(--neutral-color);
+  padding: 8px 0;
   font-size: 1em;
+}
+
+.harmonized-list {
+  list-style-type: square; /* Viñetas cuadradas */
+  padding-left: 20px; /* Ajusta el espaciado de la lista */
+}
+
+.harmonized-list .item {
+  margin-bottom: 8px; /* Espaciado entre elementos */
 }
