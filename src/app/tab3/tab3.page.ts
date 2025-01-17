@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
-  IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-  IonSelect, IonSelectOption, IonTextarea, IonButton,
-  IonList, IonItem, IonLabel,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonSelect,
+  IonSelectOption,
+  IonTextarea,
+  IonButton,
+  IonList,
+  IonItem,
+  IonLabel,
 } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-/* Importe el servicio */
 import { ProviderService } from '../services/provider.service';
 
 @Component({
@@ -14,42 +26,69 @@ import { ProviderService } from '../services/provider.service';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-    IonSelect, IonSelectOption, IonTextarea, IonButton,
-    IonList, IonItem, IonLabel,ReactiveFormsModule]
+  imports: [
+    CommonModule,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    ExploreContainerComponent,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    IonSelect,
+    IonSelectOption,
+    IonTextarea,
+    IonButton,
+    IonList,
+    IonItem,
+    IonLabel,
+    ReactiveFormsModule,
+  ],
 })
-export class Tab3Page {
-  /* Arreglo con datos locales */
+export class Tab3Page implements OnInit {
+
   dataList: any[] = [];
 
-  /* Nombre de la colección */
   collectionName = 'reviews';
 
-  /* Inyecte la dependencia a Firestore */
-  constructor(private providerService: ProviderService) { }
 
-  /* El método onSubmit para enviar los datos del formulario mediante el servicio */
-  onSubmit() {
-    this.providerService.createDocument(this.collectionName, this.myForm.value).then(() => {
-      this.myForm.reset()
-    });
-  }
-
-  /* Instancie un formulario */
   myForm: FormGroup = new FormGroup({
-    score: new FormControl("", Validators.required),
-    opinion: new FormControl("", Validators.required)
+    score: new FormControl('', Validators.required),
+    opinion: new FormControl('', Validators.required),
   });
 
-  /* Al inicializar, carga los datos  */
+
+  constructor(private providerService: ProviderService) {}
+
+
   ngOnInit() {
     this.loadData();
   }
 
   loadData() {
-    this.providerService.readCollection(this.collectionName).subscribe((data) => {
-      this.dataList = data;
+    this.providerService.readCollection(this.collectionName).subscribe((data: any[]) => {
+      this.dataList = data.sort((a, b) => b.timestamp.toDate() - a.timestamp.toDate());
     });
   }
 
+  /* Enviar datos a Firestore */
+  onSubmit() {
+    if (this.myForm.valid) {
+      const formData = {
+        ...this.myForm.value,
+        timestamp: new Date(), // Agregar marca de tiempo
+      };
+
+      this.providerService
+        .createDocument(this.collectionName, formData)
+        .then(() => {
+          this.myForm.reset();
+        })
+        .catch((error) => {
+          console.error('Error al enviar los datos:', error);
+        });
+    }
+  }
 }

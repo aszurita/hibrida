@@ -1,23 +1,18 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      <div class="header">
-        <div class="logo-container">
-          <img src="../../assets/logos/NeumoSmart.png" alt="NeumoSmartLogo"
-            class="logo">
-          <div class="brand-name">NeumoSmart</div>
-        </div>
-      </div>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="content">
-  
+
+  <div class="header">
+    <div class="logo-container">
+      <img src="../../assets/logos/NeumoSmart.png" alt="NeumoSmartLogo"
+        class="logo">
+      <div class="brand-name">NeumoSmart</div>
+    </div>
+  </div>
+
   <ion-card class="ion-padding-bottom ion-margin-bottom custom-card">
 
     <ion-card-header>
-      <ion-card-title class="custom-card-title">Carga tu análisis</ion-card-title>
+      <ion-card-title class="custom-card-title">Carga tu
+        análisis</ion-card-title>
     </ion-card-header>
 
     <ion-card-content class="ion-text-center">
@@ -26,13 +21,16 @@
 
         <ion-select formControlName="score" label="Diagnóstico"
           placeholder="Seleccione un valor" class="diagnosis-label">
-          <ion-select-option value="Neumonía Viral">Neumonía Viral</ion-select-option>
-          <ion-select-option value="Neumonía Bacteriana">Neumonía Bacteriana</ion-select-option>
+          <ion-select-option value="Neumonía Viral">Neumonía
+            Viral</ion-select-option>
+          <ion-select-option value="Neumonía Bacteriana">Neumonía
+            Bacteriana</ion-select-option>
           <ion-select-option value="Normal">Normal</ion-select-option>
         </ion-select>
 
         <ion-textarea formControlName="opinion" label="Notas adicionales"
-          placeholder="Agregue aquí su descripción"  class="custom-textarea"></ion-textarea>
+          placeholder="Agregue aquí su descripción"
+          class="custom-textarea"></ion-textarea>
 
         <ion-button type="submit" [disabled]="!myForm.valid"
           type="submit" class="custom-button">Enviar</ion-button>
@@ -45,30 +43,28 @@
   <ion-card class="ion-padding-bottom ion-margin-bottom custom-card">
 
     <ion-card-header>
-      <ion-card-title class="custom-card-title">Historial de resultados</ion-card-title>
+      <ion-card-title class="custom-card-title">Historial de
+        resultados</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-
       <ion-list>
-
-        <!-- CARGA DE DATOS - INICIO -->
-        @for (datum of dataList; track $index) {
+        @for (datum of dataList; track datum) {
         <ion-item class="custom-history-card">
-        <ion-label>
-          <h3 class="diagnosis-label">Diagnóstico:</h3>
-          <p class="diagnosis-value">{{ datum?.score }}</p>
-          <h3 class="notes-label">Notas:</h3>
-          <p class="notes-value">{{ datum?.opinion }}</p>
-        </ion-label>
+          <ion-label>
+            <div class="diagnosis-container">
+              <h3 class="diagnosis-label">Diagnóstico:</h3>
+              <p class="diagnosis-value">{{ datum?.score }}</p>
+            </div>
+            <div class="notes-container">
+              <h3 class="notes-label">Notas:</h3>
+              <p class="notes-value">{{ datum?.opinion }}</p>
+            </div>
+          </ion-label>
         </ion-item>
         }
-        <!-- CARGA DE DATOS - FIN -->
-
       </ion-list>
-
     </ion-card-content>
   </ion-card>
 
 </ion-content>
-
